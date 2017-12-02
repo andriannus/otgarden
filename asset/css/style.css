@@ -1,0 +1,76 @@
+body {
+}
+
+main {
+	padding-top: 60px;
+}
+
+#content {
+	min-height: 500px;
+}
+
+#footer {
+	
+}
+
+.margin-top-sm {
+	margin-top: 10px;
+}
+
+.bold {
+	font-weight: 700 !important;
+}
+
+.list-item {
+	border-radius: 0;
+}
+
+a.list-item .thumbnail{
+	border-radius: 0;
+	padding: 0;
+}
+
+a.list-item .thumbnail:hover {
+	box-shadow: 0 0 8px #999;
+}
+
+a.list-item img {
+	height: 100px;
+}
+
+a.list-item:hover {
+	text-decoration: none;
+}
+
+.box {
+	margin-top: 100px;
+	background-color: #eee;
+	padding: 10px 20px;
+}
+
+.judul {
+	background-color: green;
+	padding: 20px;
+	margin: auto;
+	width: 600px;
+}
+
+.judul h1,
+.judul h2 {
+	text-align: center;
+	color: #fff;
+}
+
+.banner {
+	background-image: url(../pictures/home-page/banner.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.no-border-radius {
+	border-radius: 0 !important;
+}
+
+.no-border {
+	border: 0 !important;
+}
