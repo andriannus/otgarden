@@ -37,7 +37,6 @@ class Plant extends CI_Controller {
 				'nama' => $this->input->post('nama'),
 				'harga' => $this->input->post('harga'),
 				'stok' => $this->input->post('stok'),
-				'kategori' => $this->input->post('kategori'),
 				'deskripsi' => $this->input->post('deskripsi')
 			);
 
@@ -125,7 +124,9 @@ class Plant extends CI_Controller {
 		$picture = $this->tanaman->get_one($slug)->row();
 		$path = './asset/pictures/upload/plant/'.$picture->gambar;
 
-		unlink($path);
+		if (!empty($picture->gambar)) {
+			unlink($path);
+		}
 
 		$this->tanaman->delete($slug);
 		echo json_encode(array('status' => true));

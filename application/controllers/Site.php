@@ -22,7 +22,7 @@ class Site extends CI_Controller {
 				'page' => 'site/login'
 			);
 
-			$this->load->view('core/layout/adminbase_app', $data);
+			$this->load->view('core/layout/userbase_app', $data);
 		}
 	}
 

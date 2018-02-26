@@ -2,57 +2,91 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
-<div class="container">
-	<?php if (count($query) == 0) {; ?>
-	<div class="text-center">
-		<p><i>-- Tidak ada data --</i></p>
-		<a class="btn btn-lg btn-primary" href="<?php echo base_url('plant/add'); ?>" target="_self">
-			Tambah Tanaman <i class="fa fa-plus"></i>
-		</a>
-	</div>
-	<?php } else { ?>
-	<a class="btn btn-primary" href="<?php echo base_url('plant/add'); ?>" target="_self">
-		Tambah Tanaman <i class="fa fa-plus"></i>
-	</a>
+<section class="content-header">
+	<h1>
+		Tanaman
+		<small>Daftar Lengkap</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<i class="fa fa-dashboard"></i> Dashboard
+			</a>
+		</li>
+		<li class="active">Tanaman</li>
+	</ol>
+</section>
 
-	<table class="table table-striped text-center margin-top-sm">
-		<tr class="bold">
-			<td width="10%">Gambar</td>
-			<td width="45%">Nama</td>
-			<td width="15%">Harga</td>
-			<td width="10%">Stok</td>
-			<td width="20%">Aksi</td>
-		</tr>
+<section class="content">
+	<div class="col-xs-12">
+		<div class="row">
+			<div class="box box-success">
+				<div class="box-header with-border">
+					<a class="btn btn-primary" href="<?php echo base_url('plant/add'); ?>" target="_self">
+						Tambah Tanaman <i class="fa fa-plus"></i>
+					</a>
+				</div>
+				<div class="box-body">		
+					<p id="showSpinner" class="text-center">
+						<i class="fa fa-spinner fa-spin fa-5x"></i>
+					</p>
+					<?php if (count($query) == 0) {; ?>
 
-		<?php foreach ($query as $tanaman): ?>
-		<tr>
-			<td><img src="<?php echo base_url('asset/pictures/upload/plant/'.$tanaman['gambar']); ?>" width="30px" height="auto"></td>
-			<td><?php echo $tanaman['nama']; ?></td>
-			<td>Rp. <?php echo number_format($tanaman['harga'], '0', ',', '.'); ?></td>
-			<td><?php echo $tanaman['stok']; ?></td>
-			<td>
-				<a class="btn btn-success" href="<?php echo base_url('plant/update/').$tanaman['slug']; ?>">
-					<i class="fa fa-pencil"></i>
-				</a>
-				<a class="btn btn-danger" onclick="delete(<?php echo $tanaman['slug']; ?>)">
-					<i class="fa fa-times"></i>
-				</a>
-			</td>
-		</tr>
-		<?php endforeach; ?>
-	</table>
-	<div class="text-center">
-		<?php 
-			}
-			echo $this->pagination->create_links();
-		?>
+					<div class="text-center">
+						<p><i>-- Tidak ada data --</i></p>
+					</div>
+
+					<?php } else { ?>
+
+					<table id="tabelTanaman" class="table table-bordered table-striped text-center" width="100%" cellspacing="0" style="display: none;">
+						<thead>
+							<tr>
+								<th>Gambar</th>
+								<th>Nama</th>
+								<th>Harga</th>
+								<th>Stok</th>
+								<th>Aksi</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($query as $tanaman): ?>
+							<tr>
+								<td><img src="<?php echo base_url('asset/pictures/upload/plant/'.$tanaman['gambar']); ?>" width="30px" height="auto"></td>
+								<td><?php echo $tanaman['nama']; ?></td>
+								<td>Rp. <?php echo number_format($tanaman['harga'], '0', ',', '.'); ?></td>
+								<td><?php echo $tanaman['stok']; ?></td>
+								<td>
+									<a class="btn btn-success" href="<?php echo base_url('plant/update/').$tanaman['slug']; ?>">
+										<i class="fa fa-pencil"></i>
+									</a>
+									<a id="btnDelete" class="btn btn-danger" data="<?php echo $tanaman['slug']; ?>">
+										<i class="fa fa-times"></i>
+									</a>
+								</td>
+							</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+
+					<?php } ?>
+
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
+</section>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		function delete(slug) {
-			if (confirm("Anda yakin ingin menghapus data ini?")) {
+
+		$('#btnDelete').click(function(){
+			var slug = $(this).attr('data')
+			deletePlant(slug)
+		})
+
+		function deletePlant(slug) {
+			var result = confirm("Anda yakin ingin menghapus data ini?")
+			if (result) {
 				$.ajax({
 					url: "<?php echo base_url('plant/delete/')?>" + slug,
 					type : "POST",
@@ -66,5 +100,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				});
 			}
 		}
+
+		$('#showSpinner').hide();
+
+		$('#tabelTanaman').DataTable({
+			"responsive": true,
+			"order": [], //Initial no order.
+
+			//Set column definition initialisation properties.
+			"columnDefs": [
+				{ 
+				"targets": [ 0, 4 ], //first column / numbering column
+				"orderable": false, //set not orderable
+				},
+			],
+		});
+
+		$('#tabelTanaman').show();
 	})
 </script>

@@ -1,0 +1,50 @@
+body {
+	background-color: #eee;
+	font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+main {
+	min-height: 460px;
+}
+
+footer {
+	min-height: 100px;
+	background-color: #222;
+	color: #9d9d9d;
+	padding: 20px 0;
+	margin-top: 20px;
+}
+
+footer a{
+	color: #9d9d9d;
+}
+
+.box {
+	margin-top: 100px;
+	background-color: #fff;
+	box-shadow: 0 1px 8px #222;
+}
+
+.bold {
+	font-weight: bold !important;
+}
+
+.margin-bottom-md {
+	margin-bottom: 30px;
+}
+
+.jumbotron {
+	background-color: #fff;
+}
+
+.padding-md {
+	padding: 15px;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0 !important;
+}
+
+.banner {
+	margin-top: -20px;
+}
