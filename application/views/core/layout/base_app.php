@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link href="<?php echo base_url('asset/components/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
 		<link href="<?php echo base_url('asset/components/font-awesome/css/font-awesome.min.css'); ?>" rel="stylesheet">
 
-		<link href="<?php echo base_url('asset/css/style.css'); ?>" rel="stylesheet">
+		<link href="<?php echo base_url('asset/css/style2.css'); ?>" rel="stylesheet">
 	</head>
 	<body>
 		<main>

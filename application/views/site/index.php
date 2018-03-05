@@ -1,8 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div class="jumbotron banner">
+<div class="jumbotron banner hidden-xs">
 	<div class="judul">
+		<h1>Selamat Datang</h1>
+		<hr>
+		<h2>Selamat Berbelanja</h2>
+	</div>
+</div>
+
+<div class="jumbotron visible-xs banner">
+	<div class="text-center text-white">
 		<h1>Selamat Datang</h1>
 		<hr>
 		<h2>Selamat Berbelanja</h2>

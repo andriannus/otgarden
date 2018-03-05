@@ -20,13 +20,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="col-md-6">
 					<div class="form-group">
 						<label>Nama Depan</label>
-						<input type="text" class="form-control" name="nama_depan" placeholder="Nama Depan" required="">
+						<input type="text" class="form-control" name="nama_depan" placeholder="Nama Depan" required pattern="[A-Za-z]">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
 						<label>Nama Belakang</label>
-						<input type="text" class="form-control" name="nama_belakang" placeholder="Nama Belakang" required="">
+						<input type="text" class="form-control" name="nama_belakang" placeholder="Nama Belakang" pattern="[A-Za-z]">
 					</div>
 				</div>
 			</div>
@@ -34,13 +34,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="col-md-6">
 					<div class="form-group">
 						<label>HP/Telepon</label>
-						<input type="text" class="form-control" name="telepon" placeholder="Contoh: 08130000000" required="">
+						<input type="text" class="form-control" name="telepon" placeholder="Contoh: 08130000000" required pattern="[0-9]">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
 						<label>Email</label>
-						<input type="email" class="form-control" name="email" placeholder="Contoh: email@domain.com" required="">
+						<input type="email" class="form-control" name="email" placeholder="Contoh: email@domain.com" required>
 					</div>
 				</div>
 			</div>
@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="col-md-12">
 					<div class="form-group">
 						<label>Alamat Lengkap</label>
-						<textarea class="form-control" rows="5" name="alamat" placeholder="Alamat lengkap Anda. Dari nama Jalan, Blok, RT/RW, Kelurahan, Kecamatan, Kota, hingga kode pos." required=""></textarea>
+						<textarea class="form-control" rows="5" name="alamat" placeholder="Alamat lengkap Anda. Dari nama Jalan, Blok, RT/RW, Kelurahan, Kecamatan, Kota, hingga kode pos." required></textarea>
 					</div>
 
 					<div class="form-group">

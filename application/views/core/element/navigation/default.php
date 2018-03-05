@@ -12,13 +12,38 @@
 		<div class="collapse navbar-collapse" id="dropdown-nav">
 			<form class="navbar-form navbar-left" action="<?php echo base_url('site/search?'); ?>">
 				<div class="input-group">
-					<input type="text" class="form-control" size="93" name="q" placeholder="Cari nama tanaman disini..."
+					<input type="text" class="form-control visible-lg" size="103" name="q" placeholder="Cari nama tanaman disini..."
 						<?php 
 							if ($this->input->get('q')) {
 								echo "value = ".$this->input->get('q');
 							}
 						?>
 					>
+
+					<input type="text" class="form-control visible-md" size="73" name="q" placeholder="Cari nama tanaman disini..."
+						<?php 
+							if ($this->input->get('q')) {
+								echo "value = ".$this->input->get('q');
+							}
+						?>
+					>
+
+					<input type="text" class="form-control visible-sm" size="43" name="q" placeholder="Cari nama tanaman disini..."
+						<?php 
+							if ($this->input->get('q')) {
+								echo "value = ".$this->input->get('q');
+							}
+						?>
+					>
+
+					<input type="text" class="form-control visible-xs" name="q" placeholder="Cari nama tanaman disini..."
+						<?php 
+							if ($this->input->get('q')) {
+								echo "value = ".$this->input->get('q');
+							}
+						?>
+					>
+
 					<span class="input-group-btn">
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-search"></i>
